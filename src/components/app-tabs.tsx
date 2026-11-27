@@ -1,30 +1,55 @@
-import { NativeTabs } from 'expo-router/unstable-native-tabs';
-import { useColorScheme } from 'react-native';
 
-import { Colors } from '@/constants/theme';
+import { NativeTabs } from 'expo-router/unstable-native-tabs';
 
 export default function AppTabs() {
-  const scheme = useColorScheme();
-  const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
-
   return (
     <NativeTabs
-      backgroundColor={colors.background}
-      indicatorColor={colors.backgroundElement}
-      labelStyle={{ selected: { color: colors.text } }}>
+      backgroundColor="#FFFFFF"
+      indicatorColor="#E9EDF3"
+      rippleColor="#A9B7C6"
+      tintColor="#173B70"
+      labelStyle={{
+        default: { color: '#5D87B7' },
+        selected: { color: '#173B70' },
+      }}
+    >
       <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Label>Início</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/home.png')}
-          renderingMode="template"
+          sf="house.fill"
+          md="home"
         />
       </NativeTabs.Trigger>
 
       <NativeTabs.Trigger name="explore">
-        <NativeTabs.Trigger.Label>Explore</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Label>Explorar</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/explore.png')}
-          renderingMode="template"
+          sf="safari"
+          md="explore"
+        />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="bibliotecas">
+        <NativeTabs.Trigger.Label>Bibliotecas</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          sf="books.vertical"
+          md="menu_book"
+        />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="espacos">
+        <NativeTabs.Trigger.Label>Espaços</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          sf="map"
+          md="map"
+        />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="atividades">
+        <NativeTabs.Trigger.Label>Atividades</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          sf="calendar"
+          md="event"
         />
       </NativeTabs.Trigger>
     </NativeTabs>
